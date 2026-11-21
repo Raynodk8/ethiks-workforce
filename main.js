@@ -31,3 +31,12 @@ document.querySelectorAll('form[data-form]').forEach(function (form) {
       .then(function () { button.disabled = false; });
   });
 });
+
+// phone menu: the button top right opens and closes the page links
+(function () {
+  var head = document.querySelector('.head'), btn = document.querySelector('.menu'), nav = document.getElementById('nav');
+  if (!head || !btn || !nav) return;
+  head.classList.add('has-menu');
+  btn.addEventListener('click', function () { var open = nav.classList.toggle('open'); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); });
+  nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') { nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); } });
+})();

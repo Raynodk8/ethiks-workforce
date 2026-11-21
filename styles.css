@@ -255,3 +255,27 @@ form.card.tiny .small { font-size: 0.7rem; line-height: 1.35; }
   .hero.home > img.bg { inset: 0 auto 0 -16%; width: 116%; max-width: none; object-position: center 24%; }
   .hero.home form.card.tiny { align-self: start; transform: translateX(clamp(0px, calc((100vw - 1240px) / 2), 40px)); }
 }
+
+/* ---------- phone menu: a button top right opens the page links ---------- */
+.menu { display: none; }
+@media (max-width: 760px) {
+  .head .in { flex-wrap: wrap; }
+  .head.has-menu .menu { display: inline-flex; margin-left: auto; width: 46px; height: 46px; align-items: center; justify-content: center; background: transparent; border: 1.5px solid rgba(255,255,255,0.45); border-radius: 4px; cursor: pointer; }
+  .menu span, .menu span::before, .menu span::after { display: block; width: 20px; height: 2px; background: #fff; position: relative; transition: transform 0.2s ease, background 0.2s ease; }
+  .menu span::before, .menu span::after { content: ""; position: absolute; left: 0; }
+  .menu span::before { top: -6px; } .menu span::after { top: 6px; }
+  .menu[aria-expanded="true"] span { background: transparent; }
+  .menu[aria-expanded="true"] span::before { transform: translateY(6px) rotate(45deg); }
+  .menu[aria-expanded="true"] span::after { transform: translateY(-6px) rotate(-45deg); }
+  .head.has-menu .nav { display: none; width: 100%; flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 0; padding: 4px 0 12px; overflow: visible; }
+  .head.has-menu .nav.open { display: flex; }
+  .head.has-menu .nav a:not(.btn) { display: block; white-space: normal; font-size: 1.02rem; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.12); }
+  .head.has-menu .nav a[aria-current="page"] { border-bottom-color: rgba(255,255,255,0.12); color: #fff; font-weight: 700; }
+  .head.has-menu .nav .btn { display: block; margin-top: 14px; text-align: center; }
+}
+@media (max-width: 560px) {
+  .head .in { gap: 8px 12px; }
+  .brand { gap: 10px; }
+  .brand img { width: 104px; }
+  .brand span { font-size: 0.72rem; letter-spacing: 0.16em; padding-left: 10px; }
+}
