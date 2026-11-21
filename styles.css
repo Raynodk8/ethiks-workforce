@@ -229,3 +229,14 @@ form.card.mini .chips span { padding: 6px 11px; font-size: 0.8rem; }
 form.card.mini .go { grid-column: 1 / -1; }
 form.card.mini .go .btn { width: 100%; padding: 13px 20px; }
 @media (max-width: 940px) { .hero .in { grid-template-columns: minmax(0, 1fr); } }
+
+/* sector pages: the manager stands on the left, the words sit beside them, the card stays clear on the right */
+.hero.sector > img.bg { transform: scaleX(-1); object-position: center 35%; }
+.hero.sector::before { background: linear-gradient(90deg, rgba(14,21,36,0.10) 0%, rgba(14,21,36,0.10) 20%, rgba(14,21,36,0.86) 36%, rgba(14,21,36,0.86) 66%, rgba(14,21,36,0.40) 100%); }
+.hero.sector .pitch { margin-left: 31%; }
+@media (max-width: 1100px) { .hero.sector .pitch { margin-left: 26%; } }
+@media (max-width: 940px) { .hero.sector .pitch { margin-left: 0; } }
+.hero.sector .pitch h1 { font-size: clamp(2rem, 3.3vw, 2.9rem); overflow-wrap: normal; }
+.hero.sector .pitch { gap: 16px; }
+.hero.sector .pitch .line { font-size: clamp(1.05rem, 1.7vw, 1.3rem); }
+.hero.sector .in { align-items: center; padding-top: 56px; padding-bottom: 56px; }
