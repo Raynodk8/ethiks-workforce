@@ -252,5 +252,6 @@ form.card.tiny .small { font-size: 0.7rem; line-height: 1.35; }
 @media (max-width: 940px) { .hero:not(.sector) .in { grid-template-columns: minmax(0, 1fr); } }
 /* Home hero: form sits low and out to the right, below the chin */
 @media (min-width: 941px) {
-  .hero.home form.card.tiny { align-self: end; transform: translate(clamp(0px, calc((100vw - 1240px) / 2), 80px), 40px); }
+  .hero.home > img.bg { inset: 0 auto 0 -16%; width: 116%; max-width: none; object-position: center 24%; }
+  .hero.home form.card.tiny { align-self: start; transform: translateX(clamp(0px, calc((100vw - 1240px) / 2), 40px)); }
 }
