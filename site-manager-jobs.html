@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="/styles.css?v=15">
+<link rel="stylesheet" href="/styles.css?v=16">
 <link rel="icon" href="/assets/ethiks-logo.png">
 </head>
 <body>
@@ -40,15 +40,10 @@
     <form class="card mini" id="request" data-form="manager" novalidate>
       <h2>Register for work</h2>
       <p class="lede">We call you about roles that fit.</p>
-      <fieldset class="full"><legend>Your role</legend><div class="chips">
-        <label><input type="radio" name="role" value="Site manager" checked><span>Site manager</span></label>
-        <label><input type="radio" name="role" value="Project manager"><span>Project manager</span></label>
-        <label><input type="radio" name="role" value="Site supervisor"><span>Supervisor</span></label>
-        <label><input type="radio" name="role" value="Quantity surveyor"><span>Quantity surveyor</span></label>
-      </div></fieldset>
       <label>Your name<input id="m-name" name="name" autocomplete="name" required></label>
       <label>Phone<input id="m-phone" name="phone" type="tel" autocomplete="tel" required></label>
       <label>Email<input id="m-email" name="email" type="email" autocomplete="email" required></label>
+      <label>Your role<input id="m-role" name="role" placeholder="For example: site manager"></label>
       <label>Sectors and areas<input id="m-areas" name="areas" placeholder="For example: civils, North West"></label>
       <div class="go"><button class="btn" type="submit">Register</button></div>
       <p class="full small">We use your details to find you work and to carry out the checks the law requires. See our <a href="/privacy.html">privacy notice</a>.</p>
@@ -88,6 +83,6 @@
     </div>
   </div>
 </footer>
-<script src="/main.js?v=15" defer></script>
+<script src="/main.js?v=16" defer></script>
 </body>
 </html>
