@@ -1,6 +1,6 @@
 // Ethiks Workforce forms. FORM_ENDPOINT is where enquiries are posted as JSON.
-// It is empty until an inbox or CRM is chosen; while empty, nothing is sent and the form says so.
-var FORM_ENDPOINT = '';
+// It points at the Zapier workflow "Ethiks website forms to email", which emails each form to the matching Ethiks inbox.
+var FORM_ENDPOINT = 'https://hooks.zapier.com/hooks/catch/25369631/8KvtTZa0at3Oadt9/';
 
 document.querySelectorAll('form[data-form]').forEach(function (form) {
   form.addEventListener('submit', function (e) {
@@ -25,8 +25,10 @@ document.querySelectorAll('form[data-form]').forEach(function (form) {
     var data = { form: form.getAttribute('data-form'), page: location.pathname };
     new FormData(form).forEach(function (v, k) { data[k] = v; });
     var button = form.querySelector('button'); button.disabled = true;
-    fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) })
-      .then(function (r) { if (!r.ok) throw new Error('send failed'); form.reset(); show('Thank you. We have your details and will call you back.'); })
+    // Sent as an ordinary form post, so the browser needs no permission check first.
+    var body = new URLSearchParams(); Object.keys(data).forEach(function (k) { body.append(k, data[k]); });
+    fetch(FORM_ENDPOINT, { method: 'POST', body: body })
+      .then(function (r) { if (!r.ok) throw new Error('send failed'); form.reset(); show(form.getAttribute('data-form') === 'eligibility' ? 'Thank you. We have your details. We will run the check and email you the answer.' : 'Thank you. We have your details and will call you back.'); })
       .catch(function () { show('Sorry, that did not send. Please try again in a moment.', true); })
       .then(function () { button.disabled = false; });
   });
