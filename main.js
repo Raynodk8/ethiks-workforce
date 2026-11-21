@@ -10,7 +10,7 @@ document.querySelectorAll('form[data-form]').forEach(function (form) {
     var email = form.querySelector('input[type="email"]');
     var badEmail = email && email.value.trim() && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value.trim());
     function show(text, isError) { msg.hidden = false; msg.textContent = text; msg.classList.toggle('err', !!isError); }
-    if (missing.length) { show('Fill in the missing details: ' + missing.map(function (el) { return el.closest('label').firstChild.textContent.trim().toLowerCase(); }).join(', ') + '.', true); missing[0].focus(); return; }
+    if (missing.length) { show('Fill in the missing details: ' + missing.map(function (el) { var l = el.closest('label'); return (el.getAttribute('aria-label') || (l ? l.firstChild.textContent : el.name)).trim().toLowerCase(); }).join(', ') + '.', true); missing[0].focus(); return; }
     if (badEmail) { show('Check the email address.', true); email.focus(); return; }
     if (!FORM_ENDPOINT) {
       // No form service yet: hand the details to the visitor's own email app, addressed to the right inbox.
