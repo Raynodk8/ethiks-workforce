@@ -243,7 +243,7 @@ form.card.mini .go .btn { width: 100%; padding: 13px 20px; }
 
 /* half-height request card on the home and managers pages: placeholders in place of labels */
 .hero:not(.sector) .in { grid-template-columns: minmax(0, 1fr) 280px; }
-form.card.tiny { padding: 16px 16px 14px; gap: 7px; border-top-width: 3px; }
+form.card.tiny { padding: 16px 16px 14px; gap: 7px; border-top-width: 3px; align-self: start; }
 form.card.tiny h2 { font-size: 1.02rem; margin-bottom: 2px; }
 form.card.tiny input { padding: 8px 10px; font-size: 0.9rem; }
 form.card.tiny input::placeholder { color: #6b6f78; opacity: 1; }
